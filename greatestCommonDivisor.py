@@ -19,4 +19,17 @@
 
 class Solution:
     def gcdOfStrings(self, str1: str, str2: str) -> str:
-        return 0
+
+        #gcd of string 
+        #if commutative law not followed then return the empty string
+        if str1 + str2 != str2 + str1:
+            return ''
+        else:
+            length = self.hcf(len(str1), len(str2))
+            return str1[:length]
+        
+    def hcf(self, num1, num2):
+        #remainder of one divides the other until you hit 0
+
+        return num2 if num1 == 0 else self.hcf(num2% num1, num1)
+    
