@@ -9,11 +9,11 @@ def productExceptSelf(self, nums: list[int]) -> list[int]:
     prefix = 1
     suffix = 1
     answers = [0]*n
-    for i in range(1,n):
-        prefix *= nums[i - 1]
-        nums[i] = prefix
-        
+    for i in range(n):
+        answers[i] = prefix
+        prefix = prefix * nums[i]
     for j in range(n-1, -1, -1):
         answers[j] *= suffix
         suffix *= nums[j]
+
     return answers
